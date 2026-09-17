@@ -79,7 +79,7 @@ export const REDIS_DB: number = +process.env.REDIS_DB || 0
 export const REDIS_TLS: string = process.env.REDIS_TLS
 
 // SMTP
-export const VERIFY_USER_EMAIL: boolean = toBool(process.env.VERIFY_USER_EMAIL, false)
+export const VERIFY_USER_EMAIL: boolean = toBool(process.env.VERIFY_USER_EMAIL, true)
 export const SMTP_FROM: string = process.env.SMTP_FROM
 export const SMTP_HOST: string = process.env.SMTP_HOST
 export const SMTP_PORT: number = +process.env.SMTP_PORT
@@ -128,7 +128,8 @@ export const DISABLE_LOGIN_WITH_OIDC =
   helper.isEmpty(OIDC_ISSUER) ||
   !['client_secret_basic', 'client_secret_post'].includes(OIDC_CLIENT_AUTH_METHOD)
 
-export const DISABLE_LOGIN_WITH_PASSWORD: boolean = process.env.DISABLE_LOGIN_WITH_PASSWORD?.toLowerCase() === 'true'
+export const DISABLE_LOGIN_WITH_PASSWORD: boolean =
+  process.env.DISABLE_LOGIN_WITH_PASSWORD?.toLowerCase() === 'true'
 
 // Stripe
 export const STRIPE_VERSION: string = process.env.STRIPE_VERSION
