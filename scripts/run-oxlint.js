@@ -1,9 +1,19 @@
 #!/usr/bin/env node
 
 const { spawnSync } = require('child_process')
+const path = require('path')
 
 const args = process.argv.slice(2)
-const result = spawnSync('pnpm', ['exec', 'oxlint', ...args], {
+
+let oxlintBin
+
+try {
+  oxlintBin = require.resolve('oxlint/bin/oxlint')
+} catch {
+  oxlintBin = path.resolve(__dirname, '../node_modules/oxlint/bin/oxlint')
+}
+
+const result = spawnSync(process.execPath, [oxlintBin, ...args], {
   encoding: 'utf8'
 })
 
