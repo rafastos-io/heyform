@@ -9,6 +9,17 @@ import { FormService } from '@service'
 
 const DEFAULT_FORM_NAME = 'Untitled'
 
+const DEFAULT_THANK_YOU_CONTENTS: Record<string, { title: string; description: string }> = {
+  en: {
+    title: 'Thank you!',
+    description: 'Thanks for completing this form. Now create your own form.'
+  },
+  'pt-br': {
+    title: 'Obrigado!',
+    description: 'Obrigado por preencher este formulário. Agora crie seu próprio formulário.'
+  }
+}
+
 @Resolver()
 @Auth()
 export class CreateFormResolver {
@@ -22,6 +33,8 @@ export class CreateFormResolver {
     @Args('input') input: CreateFormInput
   ): Promise<string> {
     const name = helper.isValid(input.name?.trim()) ? input.name.trim() : DEFAULT_FORM_NAME
+
+    const thankYouContents = DEFAULT_THANK_YOU_CONTENTS[user.lang] || DEFAULT_THANK_YOU_CONTENTS.en
 
     const fields = [
       {
@@ -40,8 +53,8 @@ export class CreateFormResolver {
       },
       {
         id: nanoid(12),
-        title: ['Thank you!'],
-        description: ['Thanks for completing this form. Now create your own form.'],
+        title: [thankYouContents.title],
+        description: [thankYouContents.description],
         kind: FieldKindEnum.THANK_YOU
       }
     ]
@@ -58,7 +71,7 @@ export class CreateFormResolver {
         filterSpam: false,
         allowArchive: true,
         requirePassword: false,
-        locale: 'en',
+        locale: user.lang || 'en',
         enableQuestionList: true,
         enableNavigationArrows: true,
         enableEmailNotification: true

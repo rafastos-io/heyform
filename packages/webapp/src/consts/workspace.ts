@@ -9,6 +9,7 @@ export const DEFAULT_PROJECT_NAMES: AnyMap = {
   fr: 'Projet de {name}',
   ja: '{name}のプロジェクト',
   pl: 'Projekt {name}',
+  'pt-br': 'Projeto de {name}',
   'zh-cn': '{name}的项目',
   'zh-hk': '{name}的項目',
   'zh-tw': '{name}的專案'
