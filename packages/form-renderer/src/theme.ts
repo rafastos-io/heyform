@@ -67,12 +67,12 @@ function getSafeCSSValue(value?: string, fallback?: string): string | undefined 
 }
 
 export const DEFAULT_THEME: FormTheme = {
-  fontFamily: GOOGLE_FONTS[0],
-  questionTextColor: '#000',
-  answerTextColor: '#0445AF',
-  buttonBackground: '#0445AF',
-  buttonTextColor: '#fff',
-  backgroundColor: '#fff'
+  fontFamily: 'Montserrat',
+  questionTextColor: '#222223',
+  answerTextColor: '#8f604b',
+  buttonBackground: '#8c5d49',
+  buttonTextColor: '#ffffff',
+  backgroundColor: '#f5f2ee'
 }
 
 function isGoogleFontsEnabled() {

@@ -1,9 +1,16 @@
 
 @import '@heyform-inc/form-renderer/style.css';
 
+// Urban: títulos em Urbanist com tracking de display do design system
+.heyform-wrapper .heyform-block-title {
+  font-family: 'Urbanist', 'Montserrat', system-ui, sans-serif;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+}
+
 .heyform-layout-float_left img,
 .heyform-layout-float_right img {
-  border-radius: 1rem;
+  border-radius: var(--urb-radius-lg, 1rem);
 }
 
 .heyform-layout-split_left img {
