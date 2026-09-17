@@ -80,7 +80,7 @@ export const LoginGuard: FC<LayoutProps> = ({ options, children }) => {
 
   useEffect(() => {
     if (helper.isValid(options?.title)) {
-      document.title = `${t(options!.title)} - Grupo Urban`
+      document.title = `${t(options!.title)} - Forms Grupo Urban`
     }
   }, [options, t])
 
@@ -172,7 +172,7 @@ export const WorkspaceGuard: FC<LayoutProps> = ({ options, children }) => {
     selectWorkspace(workspaceId)
 
     if (workspaceId) {
-      let title = `${workspace?.name} - Grupo Urban`
+      let title = `${workspace?.name} - Forms Grupo Urban`
 
       if (helper.isValid(options?.title)) {
         title = `${t(options!.title)} · ` + title
@@ -186,7 +186,7 @@ export const WorkspaceGuard: FC<LayoutProps> = ({ options, children }) => {
     selectProject(projectId)
 
     if (projectId) {
-      let title = `${workspace?.name}/${project?.name} - Grupo Urban`
+      let title = `${workspace?.name}/${project?.name} - Forms Grupo Urban`
 
       if (helper.isValid(options?.title)) {
         title = `${t(options!.title)} · ` + title
@@ -213,7 +213,7 @@ export const BaseLayout: FC<LayoutProps> = ({ options, children }) => {
 
   useEffect(() => {
     if (helper.isValid(options?.title)) {
-      document.title = `${t(options!.title)} - Grupo Urban`
+      document.title = `${t(options!.title)} - Forms Grupo Urban`
     }
   }, [options, t])
 
