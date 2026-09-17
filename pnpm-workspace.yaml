@@ -5,6 +5,7 @@ packages:
 
 allowBuilds:
   '@apollo/protobufjs': true
+  '@urban/design-system@git+https://github.com/rafastos-io/Urban-Design-System.git#95269513adfe8bde02f740761e4b76cca14dd2c3': true
   '@nestjs/core': true
   '@parcel/watcher': true
   '@swc/core': true

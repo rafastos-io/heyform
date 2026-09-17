@@ -1,5 +1,7 @@
 import Router, { Route } from '@heyooo-inc/react-router'
 import * as Tooltip from '@radix-ui/react-tooltip'
+import '@urban/design-system/fonts.css'
+import '@urban/design-system/styles.css'
 import { ReactNode } from 'react'
 import { Root, createRoot } from 'react-dom/client'
 import { ErrorBoundary } from 'react-error-boundary'

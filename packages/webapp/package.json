@@ -29,6 +29,7 @@
     "@radix-ui/react-tooltip": "^1.1.4",
     "@radix-ui/react-visually-hidden": "^1.1.0",
     "@tabler/icons-react": "^3.20.0",
+    "@urban/design-system": "git+https://github.com/rafastos-io/Urban-Design-System.git#v0.8.0",
     "ahooks": "^3.8.1",
     "apollo-link-retry": "^2.2.16",
     "apollo-link-timeout": "^4.0.0",

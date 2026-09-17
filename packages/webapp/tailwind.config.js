@@ -6,12 +6,8 @@ module.exports = {
   content: ['index.html', './src/**/*.{ts,tsx}'],
   theme: {
     fontFamily: {
-      sans: [
-        ['Inter', ...defaultTheme.fontFamily.sans],
-        {
-          fontFeatureSettings: '"cv11"'
-        }
-      ]
+      sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
+      display: ['Urbanist', 'Montserrat', ...defaultTheme.fontFamily.sans]
     },
     extend: {
       colors: {

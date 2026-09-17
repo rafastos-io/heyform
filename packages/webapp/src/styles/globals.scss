@@ -6,41 +6,43 @@
 
 @layer base {
   :root {
-    --hf-background: 249, 248, 247;
-    --hf-foreground: 255, 255, 255;
-    --hf-input: 9, 9, 11, 15%;
-    --hf-primary: 9, 9, 11;
-    --hf-primary-light: 255, 255, 255;
-    --hf-secondary: 113, 113, 122;
-    --hf-secondary-light: 9, 9, 11, 2.5%;
-    --hf-accent: 230, 230, 230;
-    --hf-accent-light: 9, 9, 11, 5%;
-    --hf-error: 220, 38, 38;
-    --hf-brand: 9, 9, 11;
+    /* Urban Design System — tema claro (off-white quente, tinta, terracota) */
+    --hf-background: 245, 242, 238; /* bg-page */
+    --hf-foreground: 250, 249, 247; /* bg-card */
+    --hf-input: 34, 34, 35, 15%;
+    --hf-primary: 34, 34, 35; /* Urban Black */
+    --hf-primary-light: 252, 252, 255; /* Off White */
+    --hf-secondary: 68, 69, 70; /* Urban Graphite */
+    --hf-secondary-light: 34, 34, 35, 2.5%;
+    --hf-accent: 232, 227, 220; /* bg-elevated */
+    --hf-accent-light: 34, 34, 35, 5%;
+    --hf-error: 138, 85, 67; /* danger */
+    --hf-brand: 140, 93, 73; /* brand-solid */
 
-    --hf-dashboard-zone: 9, 9, 11, 5%;
-    --hf-dashboard-border: 229, 231, 235;
-    --hf-dashboard-muted: 107, 114, 128;
-    --hf-dashboard-radius: 0.75rem;
+    --hf-dashboard-zone: 34, 34, 35, 5%;
+    --hf-dashboard-border: 232, 227, 220;
+    --hf-dashboard-muted: 103, 106, 109; /* text-tertiary */
+    --hf-dashboard-radius: 0.875rem; /* radius-md */
     --hf-dashboard-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.03);
   }
 
   .dark {
-    --hf-background: 9, 9, 11;
-    --hf-foreground: 24, 24, 27;
-    --hf-input: 255, 255, 255, 10%;
-    --hf-primary: 255, 255, 255;
-    --hf-primary-light: 24, 24, 27;
-    --hf-secondary: 161, 161, 170;
-    --hf-secondary-light: 255, 255, 255, 2.5%;
-    --hf-accent: 230, 230, 230;
-    --hf-accent-light: 255, 255, 255, 5%;
-    --hf-error: 220, 38, 38;
-    --hf-brand: 37, 99, 235;
+    /* Urban Design System — tema escuro (Urban Black, areia, terracota) */
+    --hf-background: 22, 23, 24; /* bg-page */
+    --hf-foreground: 31, 32, 34; /* bg-card */
+    --hf-input: 207, 208, 210, 16%;
+    --hf-primary: 252, 252, 255; /* Off White */
+    --hf-primary-light: 31, 32, 34;
+    --hf-secondary: 200, 201, 203; /* text-secondary */
+    --hf-secondary-light: 226, 212, 198, 8%; /* Warm Beige 8% */
+    --hf-accent: 50, 51, 53; /* bg-elevated */
+    --hf-accent-light: 226, 212, 198, 14%; /* Warm Beige 14% */
+    --hf-error: 185, 123, 121; /* danger */
+    --hf-brand: 158, 106, 83; /* brand-solid */
 
-    --hf-dashboard-zone: 26, 36, 50;
-    --hf-dashboard-border: 57, 57, 63;
-    --hf-dashboard-muted: 161, 161, 170;
+    --hf-dashboard-zone: 39, 40, 42; /* bg-muted */
+    --hf-dashboard-border: 58, 59, 61;
+    --hf-dashboard-muted: 140, 143, 146; /* text-tertiary */
     --hf-dashboard-shadow: none;
   }
 }
