@@ -1,5 +1,5 @@
 export default {
-  'Made with HeyForm': '使用 <icon></icon> <span>HeyForm</span> 创建表单',
+  'Made with HeyForm': '使用 <icon></icon> <span>Grupo Urban</span> 创建表单',
   'This field is required': '此字段是必需的',
   'File type is not supported': '不支持的文件类型',
   "File size can't exceed {{size}}": '文件大小不能超过{{size}}',

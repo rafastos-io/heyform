@@ -1,5 +1,5 @@
 export default {
-  'Made with HeyForm': 'HeyForm ile yapılmıştır <icon></icon> <span>HeyForm</span>',
+  'Made with HeyForm': 'Grupo Urban ile yapılmıştır <icon></icon> <span>Grupo Urban</span>',
   'This field is required': 'Bu alan zorunludur',
   'File type is not supported': 'Dosya türü desteklenmiyor',
   "File size can't exceed {{size}}": "Dosya boyutu {{size}}'ı geçemez",

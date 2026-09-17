@@ -66,8 +66,10 @@ function getSafeCSSValue(value?: string, fallback?: string): string | undefined 
   return value
 }
 
+const LOCAL_FONT_FAMILIES = ['Urbanist', 'Montserrat']
+
 export const DEFAULT_THEME: FormTheme = {
-  fontFamily: 'Montserrat',
+  fontFamily: 'Urbanist',
   questionTextColor: '#222223',
   answerTextColor: '#8f604b',
   buttonBackground: '#8c5d49',
@@ -148,7 +150,9 @@ export function getTheme(theme?: FormTheme): FormTheme {
 
   if (
     !newTheme.fontFamily ||
-    (newTheme.fontFamily !== SYSTEM_FONTS && !GOOGLE_FONTS.includes(newTheme.fontFamily))
+    (newTheme.fontFamily !== SYSTEM_FONTS &&
+      !LOCAL_FONT_FAMILIES.includes(newTheme.fontFamily) &&
+      (!GOOGLE_FONTS.includes(newTheme.fontFamily) || !isGoogleFontsEnabled()))
   ) {
     newTheme.fontFamily = DEFAULT_THEME.fontFamily
   }
