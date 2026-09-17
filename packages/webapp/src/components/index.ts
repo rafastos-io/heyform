@@ -32,3 +32,5 @@ export * from './Portal'
 export * from './InputOTP'
 export * from './PasswordStrength'
 export * from './UnsplashPicker'
+
+export * from './BrandLogo'

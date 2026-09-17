@@ -1,6 +1,6 @@
 {
-  "name": "HeyForm",
-  "short_name": "HeyForm",
+  "name": "Grupo Urban",
+  "short_name": "Grupo Urban",
   "description": "Use HeyForm to create beautiful, interactive free online forms.",
   "icons": [
     {
@@ -48,9 +48,9 @@
     }
   ],
   "display": "standalone",
-  "background_color": "#ffffff",
-  "lang": "en",
-  "theme_color": "#ffffff",
+  "background_color": "#f5f2ee",
+  "lang": "pt-br",
+  "theme_color": "#f5f2ee",
   "start_url": "/login",
   "scope": "/",
   "id": "/login"
