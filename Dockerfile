@@ -10,7 +10,7 @@ WORKDIR $APP_PATH
 # Keep the package manager and native build toolchain in a shared layer. Both
 # dependency stages inherit this layer, while the final runtime image does not.
 RUN npm install -g pnpm@9.15.9
-RUN apk add --no-cache python3 make g++
+RUN apk add --no-cache python3 make g++ git
 
 FROM toolchain AS fetched
 
@@ -20,7 +20,14 @@ ARG APP_PATH=/app
 # this layer and the BuildKit-backed pnpm store.
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml $APP_PATH/
 RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
-    pnpm fetch --frozen-lockfile --store-dir=/pnpm/store
+    --mount=type=secret,id=GITHUB_TOKEN \
+    set -eu; \
+    GITHUB_TOKEN="$(cat /run/secrets/GITHUB_TOKEN)"; \
+    test -n "$GITHUB_TOKEN"; \
+    git config --global "url.https://x-access-token:${GITHUB_TOKEN}@github.com/.insteadOf" "https://github.com/"; \
+    pnpm fetch --frozen-lockfile --store-dir=/pnpm/store; \
+    rm -f /root/.gitconfig; \
+    unset GITHUB_TOKEN
 
 FROM fetched AS build
 
@@ -61,6 +68,8 @@ FROM ${NODE_IMAGE} AS runner
 ARG APP_PATH=/app
 ENV NODE_ENV=production
 WORKDIR $APP_PATH
+
+RUN apk add --no-cache curl
 
 # Only production dependencies and build output enter the runtime image. pnpm,
 # Python, make, and g++ remain in the intermediate stages.
