@@ -22,12 +22,13 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml $APP_PATH/
 RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
     --mount=type=secret,id=GITHUB_TOKEN \
     set -eu; \
-    GITHUB_TOKEN="$(cat /run/secrets/GITHUB_TOKEN)"; \
-    test -n "$GITHUB_TOKEN"; \
-    git config --global "url.https://x-access-token:${GITHUB_TOKEN}@github.com/.insteadOf" "https://github.com/"; \
-    pnpm fetch --frozen-lockfile --store-dir=/pnpm/store; \
+    GH_BUILD_TOKEN="$$(cat /run/secrets/GITHUB_TOKEN)"; \
+    trap 'rm -f /root/.gitconfig; unset GH_BUILD_TOKEN' EXIT; \
+    test -n "$$GH_BUILD_TOKEN"; \
+    git config --global "url.https://x-access-token:$$GH_BUILD_TOKEN@github.com/.insteadOf" "https://github.com/"; \
+    pnpm fetch --prod=false --frozen-lockfile --store-dir=/pnpm/store; \
     rm -f /root/.gitconfig; \
-    unset GITHUB_TOKEN
+    unset GH_BUILD_TOKEN
 
 FROM fetched AS build
 
@@ -39,7 +40,7 @@ COPY packages/server/package.json $APP_PATH/packages/server/package.json
 COPY packages/webapp/package.json $APP_PATH/packages/webapp/package.json
 COPY packages/form-renderer/package.json $APP_PATH/packages/form-renderer/package.json
 RUN --mount=type=cache,id=pnpm-store,target=/pnpm/store \
-    pnpm install --offline --frozen-lockfile --store-dir=/pnpm/store
+    pnpm install --prod=false --offline --frozen-lockfile --store-dir=/pnpm/store
 
 COPY packages/server $APP_PATH/packages/server
 COPY packages/webapp $APP_PATH/packages/webapp
